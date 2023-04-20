@@ -4,11 +4,20 @@ namespace App\Http\Controllers;
 
 use App\Models\Recept;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ReceptController extends Controller
 {
     public function index(){
         $receptek =  Recept::all();
+        return $receptek;
+    }
+
+    public function receptekKatNevvel(){
+        $receptek =  DB::table('recepts as r')
+        ->select('r.nev', 'k.nev', 'kep_eleresi_ut', 'leiras')
+        ->join('kategorias as k', 'r.kat_id', '=', 'k.nev')
+        ->get();
         return $receptek;
     }
     

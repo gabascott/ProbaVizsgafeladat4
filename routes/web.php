@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('kezdolap');
 })->name('kezdolap');
 
 Route::get('/dashboard', function () {
@@ -30,6 +30,7 @@ Route::get('/api/kategoria_felvisz', [KategoriaController::class, 'ujKategoria']
 Route::get('/api/kategoria_modosit', [KategoriaController::class, 'modositKategoria']);
 
 Route::get('/api/receptek', [ReceptController::class, 'index']);
+Route::get('/api/receptek_kategoriaval', [ReceptController::class, 'receptekKatNevvel']);
 Route::get('/api/recept_keres', [ReceptController::class, 'keres']);
 Route::get('/api/recept_torol', [ReceptController::class, 'torol']);
 Route::get('/api/recept_felvisz', [ReceptController::class, 'ujRecept']);

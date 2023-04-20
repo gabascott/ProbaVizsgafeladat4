@@ -18,7 +18,7 @@ return new class extends Migration
             $table->id();
             $table->string('nev');
             $table->foreignId('kat_id')->references('id')->on('kategorias');
-            $table->string('kep_eleresi_ut');
+            $table->string('kep_eleresi_ut')->nullable();
             $table->string('leiras');
             $table->timestamps();
         });
